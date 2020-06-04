@@ -1,0 +1,14 @@
+{
+    "name": "External msessage capture",
+    "version": "0.1",
+    "description": "External msessage capture",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["extension.js"],
+        "persistent": false
+    },
+    "externally_connectable": {
+        "matches": ["*://localhost/*"]
+    },
+    "permissions": ["desktopCapture"]
+}
