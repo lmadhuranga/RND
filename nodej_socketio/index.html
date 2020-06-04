@@ -7,7 +7,8 @@
 </head> 
 <body class="chat" style="background-color: slategrey;"> 
   <form id='message-form'> 
-    <input name='message' type="text" placeholder="Message" autofocus autocomplete="off"/> 
+    <input id='from' type="text" placeholder="Message" autofocus autocomplete="off"/> <br/>
+    <input id='message' type="text" placeholder="Message" autofocus autocomplete="off"/> 
     <button id="btn1" >Send</button> 
   </form> 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -32,17 +33,20 @@
   }); 
   
   // when disconnected from server 
-  socket.on('broadcast', function(){ 
-    console.log('broadcast from server') 
+  socket.on('broadcast', function(message){ 
+    console.log(`Broadcast ${message.from} >> ${message.text}` ) 
   }); 
 
   $( document ).ready(function() {
+    from: $('#from').val(`user-${Date.now()}`)
+    text: $('#message').val('Test mssage')
+
     $('#btn1').click((e)=>{
       e.preventDefault();
       // emits message from user side 
-      socket.emit('createMessage', { 
-        to:'ssssssss@ds', 
-        text:'ssss'
+      socket.emit('createMessage', {   
+        from: $('#from').val(),
+        text: $('#message').val()
       }); 
     })   
   }); 

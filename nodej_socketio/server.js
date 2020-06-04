@@ -10,17 +10,13 @@ let io = socketIO(server)
 io.on('connection', (socket)=>{ 
   console.log('New user connected'); 
   //emit message from server to user 
-  socket.emit('newMessage', { 
-    from:'jen@mds', 
-    text:'hepppp', 
-    createdAt:123 
-  }); 
+  socket.emit('newMessage', { from:'wellcome to my server' }); 
 
   // listen for message from user 
   socket.on('createMessage', (newMessage)=>{ 
     console.log('newMessage', newMessage); 
      // sending to all clients except sender
-    socket.broadcast.emit('broadcast', 'hello friends!');
+    socket.broadcast.emit('broadcast', newMessage);
   }); 
 
   // when server disconnects from user 
