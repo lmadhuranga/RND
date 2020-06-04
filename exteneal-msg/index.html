@@ -17,12 +17,10 @@
 
   <script>
     (() => {
-      const EXTENSION_ID = 'iaklkdbogjeockghioclhdcmlggnhinn';
+      const EXTENSION_ID = 'oilkdmcegammgljmmjlgldiojbbhknhp';
 
-      // chrome.runtime.sendMessage(EXTENSION_ID, 'version');
-      chrome.runtime.sendMessage(EXTENSION_ID, 'version',{}, response => {
-        console.log('EXTENSION_ID', EXTENSION_ID);
-        console.log('version', version);
+      console.log(EXTENSION_ID, 'version');
+      chrome.runtime.sendMessage(EXTENSION_ID, {"msg":"data1"}, {}, response => { 
         console.log('response', response);
       });
          
