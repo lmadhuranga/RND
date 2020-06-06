@@ -18,6 +18,9 @@ const bot = new TeleBot('1233602346:AAHtgDal0o6IlGlxz0LMdsO5dDTmNY5uil4');
 // bot.on(['/helloc'], (msg) => console.log(msg));
 
 allMsg = { 
+  '/help':` ✋ Welcome 🤚 to help desk how can I hlep you ? \n 
+          /si_help - 1️⃣ සින්හල  \n 
+          /en_help - 2️⃣ English  \n `,
   '/en_help':`Welcome to help desk how can i hlep you ? \n 
           /en_it - It issue computer 🖥️ issue \n 
           /en_call_fail - 📞 Phones not working \n
@@ -54,8 +57,8 @@ allMsg = {
           /si_call_fail - Phones ☎️  ප්‍රශ්නයක්ද? \n
           /si_wifi_fail -  Wif 🖥️ ප්‍රශ්නයක්ද?\n 
           /si_lan_fail -  Interent ⚡ cable ප්‍රශ්නයක්ද?\n\n\n\n\n /si_help Main menu`, 
-  '/si_call_fail':`Call ප්‍රශ්නයක්ද? \n 
-          Check lights\n 
+  '/si_call_fail':`Call ☎️ ප්‍රශ්නයක්ද? \n 
+          Check 🔴 lights\n 
           වයර් පරික්ශා කරන්න wall ⚡\n 
           වයර් පරික්ශා කරන්න recier ⚡\n\n\n\n\n /si_help Main menu`, 
   '/si_wifi_fail':`Wifi \n 
@@ -86,15 +89,6 @@ bot.on(/^\/\w+/, (msg, props) => {
   const selectedWord = props.match[0];
   return bot.sendMessage(msg.from.id, allMsg[selectedWord], { replyToMessage: msg.message_id });
 });
-
-bot.on(['/help'], (msg) => { 
-  msg.reply.text(`
-  Welcome to help desk how can i hlep you ? \n 
-  /si_help - සින්හල  \n 
-  /en_help - English  \n 
-  `);
-});
-
-
+ 
 
 bot.start();
